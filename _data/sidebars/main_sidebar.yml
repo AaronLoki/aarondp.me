@@ -1,1 +1,35 @@
+entries:
+  - title: Subjects
+    folders:
+      - title: Group 1 – Studies in Language & Literature
+        output: web
+        folderitems:
+          - title: English Lang & Lit
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Notes
+                    url: /english-hl/notes.html
+                  - title: Questions
+                    url: /english-hl/questions.html
+              - title: SL
+                # similar
+          - title: Chinese A
+            # etc.
 
+      - title: Group 2 – Language Acquisition
+        # repeat pattern
+
+      # Add other groups...
+
+  - title: Resources
+    url: /resources.html
+
+  - title: Study Tools
+    url: /tools.html
+
+  - title: Announcements
+    url: /announcements.html
+
+  - title: Contribute
+    url: /contribute.html
