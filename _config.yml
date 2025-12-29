@@ -1,0 +1,24 @@
+title: IB Grade Study
+description: Comprehensive IB resources • HL/SL separated • All subjects
+remote_theme: tomjoht/documentation-theme-jekyll
+# Or the latest fork if needed: pmarsceill/just-the-docs (very similar, also excellent)
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+# Theme-specific config (adjust as needed)
+theme_config:
+  sidebar:
+    accordion: true  # Collapses other sections when one expands
+  search_enabled: true
+  back_to_top: true
+
+# Your custom settings
+baseurl: ""  # Empty for root domain
+url: "https://aarondp.me"
+
+# Desktop-only enforcement
+exclude:
+  - README.md
+  - Gemfile
