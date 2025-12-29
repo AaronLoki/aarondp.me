@@ -1,1 +1,51 @@
+/* Desktop-first: min width 1200px */
+body {
+  min-width: 1200px;
+  overflow-x: auto; /* Horizontal scroll if smaller */
+}
 
+/* Hide on mobile/small screens */
+@media (max-width: 1199px) {
+  body::before {
+    content: "This site is desktop-only (minimum 1200px width). Please view on a larger screen.";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    background: #f0f0f0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+  body > *:not(script):not(style) {
+    display: none !important;
+  }
+}
+
+/* Permanent sidebar width ~260px */
+.sidebar {
+  width: 260px !important;
+  flex: 0 0 260px !important;
+}
+
+/* Main content padding */
+.main-content {
+  max-width: none; /* Full width for dense layout */
+  padding-left: 280px; /* Adjust for sidebar */
+}
+
+/* Group colors */
+.group1 { color: purple; }   /* Group 1 */
+.group2 { color: teal; }
+.group3 { color: orange; }
+.group4 { color: blue; }
+.group5 { color: green; }
+
+/* HL/SL badges */
+.hl-badge { background: var(--group-color); color: white; padding: 2px 8px; border-radius: 4px; }
+.sl-badge { border: 2px solid var(--group-color); color: var(--group-color); padding: 2px 8px; border-radius: 4px; }
