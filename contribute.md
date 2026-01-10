@@ -6,4 +6,4 @@ permalink: /contribute/
 
 # Contribute to IBDP Resources
 
-Add support the site by uploading your own resources via email: ibresourcesbiba@outlook.com
+Support the site by uploading your own resources via email: ibresourcesbiba@outlook.com

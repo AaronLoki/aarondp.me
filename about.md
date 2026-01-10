@@ -14,7 +14,7 @@ To say FUCK YOU to all resources that are charged. Resources should not be charg
 
 ## Support the Site
 
-Add support the site by uploading your own resources via email: ibresourcesbiba@outlook.com
+Support the site by uploading your own resources via email: ibresourcesbiba@outlook.com
 
 ## Get Started
 
