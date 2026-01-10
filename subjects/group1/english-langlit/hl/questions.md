@@ -1,1 +1,19 @@
+---
+layout: default
+title: English Language & Literature HL - Practice Questions
+---
 
+# English Language & Literature HL - Practice Questions
+
+Practice questions and exercises for English Language & Literature HL.
+
+## Question Bank
+
+*Practice questions coming soon.*
+
+### Tips for Practice
+
+- Start with easier questions
+- Time yourself
+- Review mark schemes
+- Identify weak areas
