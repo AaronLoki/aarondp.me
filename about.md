@@ -4,20 +4,17 @@ title: About
 permalink: /about/
 ---
 
-# About IB Grade Study
+# About IBDP Resources
 
-IB Grade Study is a comprehensive resource platform designed to support International Baccalaureate students in their academic journey.
+IBDP Resources is a comprehensive resource platform designed to support BIBA students including teacher-assigned and published resources.
 
 ## Our Mission
 
-To provide high-quality, organized study materials for all IB subjects, helping students achieve their academic goals.
+To say FUCK YOU to all resources that are charged. Resources should not be charged and will be provided free for ALL SUBJECTS.
 
-## Features
+## Support the Site
 
-- **Organized by Subject Groups**: Navigate through all 5 IB curriculum groups
-- **HL/SL Separated**: Clear distinction between Higher Level and Standard Level content
-- **Comprehensive Resources**: Notes, practice questions, past papers, and IA guidance
-- **Desktop-Optimized**: Enhanced study experience on larger screens
+Add support the site by uploading your own resources via email: ibresourcesbiba@outlook.com
 
 ## Get Started
 

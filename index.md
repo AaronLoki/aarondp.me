@@ -1,9 +1,9 @@
 ---
 layout: default
-title: IB Grade Study - Home
+title: IBDP Resources - Home
 ---
 
-## Welcome to IB Grade Study
+## Welcome to IBDP Resources
 
 Your comprehensive resource for International Baccalaureate studies. Navigate through all subject groups to access notes, practice questions, past papers, and IA guidance.
 
@@ -49,9 +49,8 @@ Your comprehensive resource for International Baccalaureate studies. Navigate th
 
 ### Quick Links
 
-- [About IB Grade Study](/about/)
+- [About IBDP Resources](/about/)
 - [Study Tools & Resources](/tools/)
-- [General Resources](/resources/)
 - [Contribute](/contribute/)
 - [Announcements](/announcements/)
 

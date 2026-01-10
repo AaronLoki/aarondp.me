@@ -6,7 +6,7 @@ permalink: /announcements/
 
 # Announcements
 
-Stay updated with the latest additions and changes to IB Grade Study.
+Stay updated with the latest additions and changes to IBDP Resources.
 
 ## Recent Updates
 
@@ -21,4 +21,4 @@ Stay updated with the latest additions and changes to IB Grade Study.
 
 ---
 
-*Last updated: January 2026*
+*Last updated: January 10, 2026*
