@@ -8,28 +8,251 @@ entries:
             subfolders:
               - title: HL
                 subfolderitems:
+                  - title: Overview
+                    url: /subjects/group1/english-langlit/hl/
                   - title: Notes
-                    url: /english-hl/notes.html
+                    url: /subjects/group1/english-langlit/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group1/english-langlit/hl/syllabus.html
                   - title: Questions
-                    url: /english-hl/questions.html
-              - title: SL
-                # similar
+                    url: /subjects/group1/english-langlit/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group1/english-langlit/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group1/english-langlit/hl/ia.html
           - title: Chinese A
-            # etc.
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group1/chinese-a/hl/
+                  - title: Notes
+                    url: /subjects/group1/chinese-a/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group1/chinese-a/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group1/chinese-a/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group1/chinese-a/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group1/chinese-a/hl/ia.html
 
       - title: Group 2 – Language Acquisition
-        # repeat pattern
+        output: web
+        folderitems:
+          - title: English B
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group2/english-b/hl/
+                  - title: Notes
+                    url: /subjects/group2/english-b/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group2/english-b/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group2/english-b/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group2/english-b/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group2/english-b/hl/ia.html
+          - title: Chinese B
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group2/chinese-b/hl/
+                  - title: Notes
+                    url: /subjects/group2/chinese-b/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group2/chinese-b/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group2/chinese-b/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group2/chinese-b/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group2/chinese-b/hl/ia.html
 
-      # Add other groups...
+      - title: Group 3 – Individuals & Societies
+        output: web
+        folderitems:
+          - title: Business
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group3/business/hl/
+                  - title: Notes
+                    url: /subjects/group3/business/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group3/business/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group3/business/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group3/business/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group3/business/hl/ia.html
+          - title: Economics
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group3/economics/hl/
+                  - title: Notes
+                    url: /subjects/group3/economics/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group3/economics/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group3/economics/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group3/economics/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group3/economics/hl/ia.html
+          - title: Psychology
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group3/psychology/hl/
+                  - title: Notes
+                    url: /subjects/group3/psychology/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group3/psychology/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group3/psychology/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group3/psychology/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group3/psychology/hl/ia.html
+          - title: Environmental Systems & Societies
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group3/evm/hl/
+                  - title: Notes
+                    url: /subjects/group3/evm/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group3/evm/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group3/evm/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group3/evm/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group3/evm/hl/ia.html
+
+      - title: Group 4 – Sciences
+        output: web
+        folderitems:
+          - title: Physics
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group4/physics/hl/
+                  - title: Notes
+                    url: /subjects/group4/physics/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group4/physics/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group4/physics/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group4/physics/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group4/physics/hl/ia.html
+          - title: Chemistry
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group4/chemistry/hl/
+                  - title: Notes
+                    url: /subjects/group4/chemistry/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group4/chemistry/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group4/chemistry/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group4/chemistry/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group4/chemistry/hl/ia.html
+          - title: Biology
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group4/biology/hl/
+                  - title: Notes
+                    url: /subjects/group4/biology/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group4/biology/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group4/biology/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group4/biology/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group4/biology/hl/ia.html
+          - title: Computer Science
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group4/computer-science/hl/
+                  - title: Notes
+                    url: /subjects/group4/computer-science/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group4/computer-science/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group4/computer-science/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group4/computer-science/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group4/computer-science/hl/ia.html
+
+      - title: Group 5 – Mathematics
+        output: web
+        folderitems:
+          - title: Math AA
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group5/math-aa/hl/
+                  - title: Notes
+                    url: /subjects/group5/math-aa/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group5/math-aa/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group5/math-aa/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group5/math-aa/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group5/math-aa/hl/ia.html
+          - title: Math AI
+            subfolders:
+              - title: HL
+                subfolderitems:
+                  - title: Overview
+                    url: /subjects/group5/math-ai/hl/
+                  - title: Notes
+                    url: /subjects/group5/math-ai/hl/notes.html
+                  - title: Syllabus
+                    url: /subjects/group5/math-ai/hl/syllabus.html
+                  - title: Questions
+                    url: /subjects/group5/math-ai/hl/questions.html
+                  - title: Past Papers
+                    url: /subjects/group5/math-ai/hl/past-papers.html
+                  - title: IA
+                    url: /subjects/group5/math-ai/hl/ia.html
 
   - title: Resources
-    url: /resources.html
+    url: /resources/
 
   - title: Study Tools
-    url: /tools.html
+    url: /tools/
 
   - title: Announcements
-    url: /announcements.html
+    url: /announcements/
 
   - title: Contribute
-    url: /contribute.html
+    url: /contribute/
