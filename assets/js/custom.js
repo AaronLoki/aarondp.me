@@ -4,96 +4,135 @@
   
   const HOME_URL = 'https://aarondp.me';
   
-  // Intercept ALL clicks and check if they're on home elements
-  document.addEventListener('click', function(e) {
-    // Start from the actual clicked element
-    let element = e.target;
-    let link = null;
-    
-    // Walk up the DOM tree to find a link
-    while (element && element !== document) {
-      if (element.tagName === 'A') {
-        link = element;
-        break;
-      }
-      element = element.parentElement;
-    }
-    
-    if (link) {
+  // More aggressive approach: use MutationObserver to watch for all links
+  function fixHomeLinks() {
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(function(link) {
       const href = link.getAttribute('href');
       const fullHref = link.href;
       
-      // Check if this is a home link (various formats)
-      // Also check if link contains home-related classes or IDs
-      const isHomeLink = 
-        href === '/' || 
-        href === '' || 
-        href === '#' ||
-        href === window.location.origin ||
-        href === window.location.origin + '/' ||
-        fullHref === window.location.origin + '/' ||
-        fullHref === window.location.origin ||
-        fullHref === HOME_URL ||
-        fullHref === HOME_URL + '/' ||
-        link.classList.contains('site-title') ||
-        link.classList.contains('navbar-brand') ||
-        link.classList.contains('home') ||
-        link.id === 'home' ||
-        link.querySelector('svg') !== null && (href === '/' || href === '' || href === '#'); // Icon links
-      
-      if (isHomeLink) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        window.location.href = HOME_URL;
-        return false;
-      }
-    }
-  }, true); // Use capture phase to catch events before anything else
-  
-  // Also update href attributes when DOM is ready
-  function updateHomeLinks() {
-    // Find all potential home links including those with icons
-    const selectors = [
-      'a[href="/"]',
-      'a[href=""]', 
-      'a[href="#"]',
-      'a.navbar-brand',
-      'a.site-title',
-      '.site-title a',
-      '.navbar-brand a',
-      'a.home',
-      'a#home',
-      'header a[href="/"]',
-      'nav a[href="/"]',
-      '.navbar a:first-child'
-    ];
-    
-    const homeLinks = document.querySelectorAll(selectors.join(', '));
-    homeLinks.forEach(function(link) {
-      const href = link.getAttribute('href');
-      if (href === '/' || href === '' || href === '#' || !href) {
+      // Check if this looks like a home link
+      if (href === '/' || 
+          href === '' || 
+          href === '#' ||
+          href === window.location.pathname ||
+          fullHref === window.location.href ||
+          fullHref === window.location.origin + '/' ||
+          fullHref === window.location.origin) {
+        
+        // Force set the href to absolute URL
+        link.href = HOME_URL;
         link.setAttribute('href', HOME_URL);
-        // Also set onclick handler as backup
-        link.onclick = function(e) {
+        
+        // Remove any existing event listeners by cloning
+        const newLink = link.cloneNode(true);
+        if (link.parentNode) {
+          link.parentNode.replaceChild(newLink, link);
+        }
+        
+        // Set new click handler
+        newLink.addEventListener('click', function(e) {
           e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
           window.location.href = HOME_URL;
           return false;
-        };
+        }, true);
       }
     });
   }
   
+  // Intercept ALL clicks at the document level with highest priority
+  document.addEventListener('click', function(e) {
+    let element = e.target;
+    
+    // Walk up to find a link
+    while (element && element !== document.body) {
+      if (element.tagName === 'A') {
+        const href = element.getAttribute('href');
+        const fullHref = element.href;
+        
+        if (href === '/' || 
+            href === '' || 
+            href === '#' ||
+            href === window.location.pathname ||
+            fullHref === window.location.href ||
+            fullHref === window.location.origin + '/' ||
+            fullHref === window.location.origin) {
+          
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          
+          // Force navigation
+          setTimeout(function() {
+            window.location.href = HOME_URL;
+          }, 0);
+          
+          return false;
+        }
+        break;
+      }
+      element = element.parentNode;
+    }
+  }, true);
+  
+  // Also capture at window level as last resort
+  window.addEventListener('click', function(e) {
+    let element = e.target;
+    
+    while (element && element !== document.body) {
+      if (element.tagName === 'A') {
+        const href = element.getAttribute('href');
+        const fullHref = element.href;
+        
+        if (href === '/' || 
+            href === '' || 
+            href === '#' ||
+            href === window.location.pathname ||
+            fullHref === window.location.href ||
+            fullHref === window.location.origin + '/' ||
+            fullHref === window.location.origin) {
+          
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          
+          window.location.href = HOME_URL;
+          return false;
+        }
+        break;
+      }
+      element = element.parentNode;
+    }
+  }, true);
+  
+  // Run fix immediately
+  fixHomeLinks();
+  
   // Run on DOM ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateHomeLinks);
-  } else {
-    updateHomeLinks();
+    document.addEventListener('DOMContentLoaded', fixHomeLinks);
   }
   
-  // Run periodically to catch dynamically added elements
-  setInterval(updateHomeLinks, 1000);
+  // Watch for changes in the DOM
+  const observer = new MutationObserver(function(mutations) {
+    fixHomeLinks();
+  });
   
-  // Also run after a short delay to ensure theme has loaded
-  setTimeout(updateHomeLinks, 2000);
+  observer.observe(document.body || document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['href']
+  });
+  
+  // Also run periodically as backup
+  setInterval(fixHomeLinks, 500);
+  
+  // Run after delays to catch late-loading elements
+  setTimeout(fixHomeLinks, 100);
+  setTimeout(fixHomeLinks, 500);
+  setTimeout(fixHomeLinks, 1000);
+  setTimeout(fixHomeLinks, 2000);
 })();
