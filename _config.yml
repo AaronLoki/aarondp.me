@@ -1,63 +1,28 @@
 title: IBDP Resources
-tagline: Comprehensive IB resources • HL/SL separated • All subjects
-description: Free resources for BIBA students including teacher-assigned and published resources
-url: "https://aarondp.me"
-
-# Chirpy theme
-remote_theme: cotes2020/jekyll-theme-chirpy
+description: Comprehensive IB resources • HL/SL separated • All subjects
+remote_theme: just-the-docs/just-the-docs
 
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-feed
 
-# Site settings
-timezone: UTC
-lang: en
+# Just the Docs theme configuration
+search_enabled: true
+heading_anchors: true
 
-# Chirpy theme configuration
-theme_mode: light  # [light|dark]
+# Auxiliary navigation (top right)
+aux_links:
+  "Home":
+    - "https://aarondp.me"
 
-# The CDN endpoint for images
-img_cdn:
-
-# Avatar (profile image)
-avatar: 
-
-# Social media links
-social:
-  name: IBDP Resources
-  email: ibresourcesbiba@outlook.com
-  links:
-
-# Site verification
-google_site_verification:
-bing_site_verification:
-
-# Analytics
-google_analytics:
-  id:
-
-# Preferred color scheme
-theme_mode: light
-
-# The sidebar settings
-sidebar:
-  display: post
-
-# Pagination
-paginate: 10
-paginate_path: "/posts/page:num/"
+# Footer
+footer_content: "IBDP Resources - Free resources for BIBA students | Support the site: ibresourcesbiba@outlook.com"
 
 # Your custom settings
 baseurl: ""  # Empty for root domain
+url: "https://aarondp.me"
 
-# Exclude files
+# Desktop-only enforcement
 exclude:
   - README.md
   - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor

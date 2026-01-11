@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: default
 title: Contribute
-icon: fas fa-hands-helping
-order: 4
+nav_order: 4
+permalink: /contribute/
 ---
 
 # Contribute to IBDP Resources

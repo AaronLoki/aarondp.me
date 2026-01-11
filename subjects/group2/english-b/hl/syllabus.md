@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: default
+nav_exclude: true
 title: English B HL - Syllabus
 ---
 

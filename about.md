@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: default
 title: About
-icon: fas fa-info-circle
-order: 2
+nav_order: 2
+permalink: /about/
 ---
 
 # About IBDP Resources

@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: default
 title: Announcements
-icon: fas fa-bullhorn
-order: 3
+nav_order: 3
+permalink: /announcements/
 ---
 
 # Announcements
