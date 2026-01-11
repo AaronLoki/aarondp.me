@@ -10,10 +10,13 @@ plugins:
 search_enabled: true
 heading_anchors: true
 
-# Navigation
+# Auxiliary navigation (top right)
 aux_links:
   "Home":
     - "https://aarondp.me"
+
+# Footer
+footer_content: "IBDP Resources - Free resources for BIBA students | Support the site: ibresourcesbiba@outlook.com"
 
 # Your custom settings
 baseurl: ""  # Empty for root domain

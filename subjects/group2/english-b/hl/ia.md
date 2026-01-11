@@ -1,5 +1,6 @@
 ---
 layout: default
+nav_exclude: true
 title: English B HL - Internal Assessment
 ---
 
