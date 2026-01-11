@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contribute
+nav_order: 4
 permalink: /contribute/
 ---
 

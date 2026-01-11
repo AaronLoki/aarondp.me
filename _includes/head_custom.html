@@ -1,28 +1,2 @@
-<script>
-// Immediate inline script to fix home links before page fully loads
-(function() {
-  'use strict';
-  const HOME_URL = 'https://aarondp.me';
-  
-  // Capture all clicks at the earliest possible moment
-  document.addEventListener('click', function(e) {
-    let el = e.target;
-    while (el && el.tagName !== 'A' && el !== document.body) {
-      el = el.parentNode;
-    }
-    
-    if (el && el.tagName === 'A') {
-      const h = el.getAttribute('href');
-      if (h === '/' || h === '#' || h === '' || h === window.location.pathname) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        window.location.href = HOME_URL;
-        return false;
-      }
-    }
-  }, true);
-})();
-</script>
-<script src="{{ '/assets/js/custom.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
 

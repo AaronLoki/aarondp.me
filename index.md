@@ -1,6 +1,9 @@
 ---
 layout: default
-title: IBDP Resources - Home
+title: Home
+nav_order: 1
+description: "IBDP Resources - Comprehensive IB resources for all subjects"
+permalink: /
 ---
 
 ## Welcome to IBDP Resources

@@ -1,138 +1,45 @@
-// Ensure home icon/link always goes to https://aarondp.me
+// Simple home link fix for Just the Docs theme
 (function() {
   'use strict';
   
   const HOME_URL = 'https://aarondp.me';
   
-  // More aggressive approach: use MutationObserver to watch for all links
-  function fixHomeLinks() {
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(function(link) {
-      const href = link.getAttribute('href');
-      const fullHref = link.href;
-      
-      // Check if this looks like a home link
-      if (href === '/' || 
-          href === '' || 
-          href === '#' ||
-          href === window.location.pathname ||
-          fullHref === window.location.href ||
-          fullHref === window.location.origin + '/' ||
-          fullHref === window.location.origin) {
-        
-        // Force set the href to absolute URL
+  // Just the Docs theme uses a site title link - ensure it goes to the right place
+  function fixHomeLink() {
+    // Find the site title/logo link
+    const siteTitle = document.querySelector('.site-title, .site-logo, .site-header a[href="/"], header a[href="/"]');
+    if (siteTitle) {
+      siteTitle.href = HOME_URL;
+      siteTitle.onclick = function(e) {
+        e.preventDefault();
+        window.location.href = HOME_URL;
+        return false;
+      };
+    }
+    
+    // Also fix any navigation home links
+    const homeLinks = document.querySelectorAll('a[href="/"], a[href=""]');
+    homeLinks.forEach(function(link) {
+      // Check if it's in the header/navigation area
+      const inNav = link.closest('header, nav, .site-header, .site-nav');
+      if (inNav) {
         link.href = HOME_URL;
-        link.setAttribute('href', HOME_URL);
-        
-        // Remove any existing event listeners by cloning
-        const newLink = link.cloneNode(true);
-        if (link.parentNode) {
-          link.parentNode.replaceChild(newLink, link);
-        }
-        
-        // Set new click handler
-        newLink.addEventListener('click', function(e) {
+        link.onclick = function(e) {
           e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
           window.location.href = HOME_URL;
           return false;
-        }, true);
+        };
       }
     });
   }
   
-  // Intercept ALL clicks at the document level with highest priority
-  document.addEventListener('click', function(e) {
-    let element = e.target;
-    
-    // Walk up to find a link
-    while (element && element !== document.body) {
-      if (element.tagName === 'A') {
-        const href = element.getAttribute('href');
-        const fullHref = element.href;
-        
-        if (href === '/' || 
-            href === '' || 
-            href === '#' ||
-            href === window.location.pathname ||
-            fullHref === window.location.href ||
-            fullHref === window.location.origin + '/' ||
-            fullHref === window.location.origin) {
-          
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-          
-          // Force navigation
-          setTimeout(function() {
-            window.location.href = HOME_URL;
-          }, 0);
-          
-          return false;
-        }
-        break;
-      }
-      element = element.parentNode;
-    }
-  }, true);
-  
-  // Also capture at window level as last resort
-  window.addEventListener('click', function(e) {
-    let element = e.target;
-    
-    while (element && element !== document.body) {
-      if (element.tagName === 'A') {
-        const href = element.getAttribute('href');
-        const fullHref = element.href;
-        
-        if (href === '/' || 
-            href === '' || 
-            href === '#' ||
-            href === window.location.pathname ||
-            fullHref === window.location.href ||
-            fullHref === window.location.origin + '/' ||
-            fullHref === window.location.origin) {
-          
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-          
-          window.location.href = HOME_URL;
-          return false;
-        }
-        break;
-      }
-      element = element.parentNode;
-    }
-  }, true);
-  
-  // Run fix immediately
-  fixHomeLinks();
-  
-  // Run on DOM ready
+  // Run on load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fixHomeLinks);
+    document.addEventListener('DOMContentLoaded', fixHomeLink);
+  } else {
+    fixHomeLink();
   }
   
-  // Watch for changes in the DOM
-  const observer = new MutationObserver(function(mutations) {
-    fixHomeLinks();
-  });
-  
-  observer.observe(document.body || document.documentElement, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['href']
-  });
-  
-  // Also run periodically as backup
-  setInterval(fixHomeLinks, 500);
-  
-  // Run after delays to catch late-loading elements
-  setTimeout(fixHomeLinks, 100);
-  setTimeout(fixHomeLinks, 500);
-  setTimeout(fixHomeLinks, 1000);
-  setTimeout(fixHomeLinks, 2000);
+  // Run after a delay to ensure theme has loaded
+  setTimeout(fixHomeLink, 500);
 })();
