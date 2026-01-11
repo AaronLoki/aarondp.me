@@ -38,6 +38,7 @@ body {
 /* Site title padding adjustment - increased for more rightward shift */
 .side-bar .site-title {
   padding-left: 20px !important; /* Shift "IBDP Resources" more to the right */
+  margin-left: 10px !important; /* Additional margin for more rightward shift */
 }
 
 /* Navigation list padding adjustment - reduced from 65px to 30px */
@@ -45,7 +46,10 @@ body {
   padding-left: 30px !important; /* Shift other sidebar items 30px to the right */
 }
 
-/* Hide default theme footer text */
+/* Hide default theme footer text - "site uses Just the Docs..." */
+.site-footer p:last-child {
+  display: none !important;
+}
 .site-footer::after {
   display: none !important;
 }
