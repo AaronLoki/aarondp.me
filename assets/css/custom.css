@@ -50,9 +50,21 @@ body {
 
 /* Adjust main content for sidebar */
 .main-content {
-  max-width: none; /* Full width for dense layout */
+  max-width: none !important; /* Full width for dense layout */
   margin-left: 210px !important; /* Match sidebar width */
-  padding-left: 20px;
+  padding-left: 30px !important; /* Minimal left padding */
+  padding-right: 30px !important; /* Balanced right padding */
+}
+
+/* Remove extra spacing from main content wrapper */
+.main-content-wrap {
+  max-width: none !important;
+  padding-left: 0 !important;
+}
+
+/* Ensure main container uses full available width */
+.main {
+  max-width: none !important;
 }
 
 /* Group colors */
