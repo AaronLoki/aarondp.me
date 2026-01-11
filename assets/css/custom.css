@@ -33,7 +33,15 @@ body {
   min-width: 210px !important;
   flex: 0 0 210px !important;
   padding-left: 10px !important; /* Add left padding to prevent text cutoff */
-  z-index: 100 !important; /* Ensure sidebar is clickable and above other content */
+  z-index: 10 !important; /* Lower z-index so search bar can appear above it */
+}
+
+/* Header and search bar positioning - ensure they appear above sidebar */
+.site-header,
+.search,
+.search-input-wrap,
+.search-input {
+  z-index: 100 !important; /* Ensure search bar is above sidebar */
 }
 
 /* Site title padding adjustment - increased for more rightward shift */
