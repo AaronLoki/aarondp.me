@@ -42,7 +42,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('english-langlit-levels')">English Lang & Lit</span>
       <div id="english-langlit-levels" class="level-options">
         <p><a href="/subjects/group1/english-langlit/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group1/english-langlit/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -50,7 +50,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('chinese-a-levels')">Chinese A</span>
       <div id="chinese-a-levels" class="level-options">
         <p><a href="/subjects/group1/chinese-a/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group1/chinese-a/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('english-b-levels')">English B</span>
       <div id="english-b-levels" class="level-options">
         <p><a href="/subjects/group2/english-b/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group2/english-b/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -70,7 +70,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('chinese-b-levels')">Chinese B</span>
       <div id="chinese-b-levels" class="level-options">
         <p><a href="/subjects/group2/chinese-b/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group2/chinese-b/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('business-levels')">Business</span>
       <div id="business-levels" class="level-options">
         <p><a href="/subjects/group3/business/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group3/business/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -90,7 +90,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('economics-levels')">Economics</span>
       <div id="economics-levels" class="level-options">
         <p><a href="/subjects/group3/economics/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group3/economics/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -98,7 +98,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('psychology-levels')">Psychology</span>
       <div id="psychology-levels" class="level-options">
         <p><a href="/subjects/group3/psychology/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group3/psychology/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -106,7 +106,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('evm-levels')">Environmental Systems & Societies</span>
       <div id="evm-levels" class="level-options">
         <p><a href="/subjects/group3/evm/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group3/evm/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('physics-levels')">Physics</span>
       <div id="physics-levels" class="level-options">
         <p><a href="/subjects/group4/physics/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group4/physics/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -126,7 +126,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('chemistry-levels')">Chemistry</span>
       <div id="chemistry-levels" class="level-options">
         <p><a href="/subjects/group4/chemistry/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group4/chemistry/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -134,7 +134,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('biology-levels')">Biology</span>
       <div id="biology-levels" class="level-options">
         <p><a href="/subjects/group4/biology/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group4/biology/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -142,7 +142,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('computer-science-levels')">Computer Science</span>
       <div id="computer-science-levels" class="level-options">
         <p><a href="/subjects/group4/computer-science/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group4/computer-science/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
   </div>
@@ -154,7 +154,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('math-aa-levels')">Math AA</span>
       <div id="math-aa-levels" class="level-options">
         <p><a href="/subjects/group5/math-aa/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group5/math-aa/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
     
@@ -162,7 +162,7 @@ function toggleLevels(subjectId) {
       <span class="subject-name" onclick="toggleLevels('math-ai-levels')">Math AI</span>
       <div id="math-ai-levels" class="level-options">
         <p><a href="/subjects/group5/math-ai/hl/">→ HL (Higher Level)</a></p>
-        <p class="no-content">→ SL (Standard Level) - Coming Soon</p>
+        <p><a href="/subjects/group5/math-ai/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
   </div>
