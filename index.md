@@ -73,6 +73,13 @@ function toggleLevels(subjectId) {
         <p><a href="/subjects/group2/chinese-b/sl/">→ SL (Standard Level)</a></p>
       </div>
     </div>
+    
+    <div class="subject-item">
+      <span class="subject-name" onclick="toggleLevels('spanish-ab-levels')">Spanish ab initio</span>
+      <div id="spanish-ab-levels" class="level-options">
+        <p><a href="/subjects/group2/spanish-ab/sl/">→ SL (Standard Level)</a></p>
+      </div>
+    </div>
   </div>
 
   <div class="subject-group" style="border-left: 4px solid orange;">
