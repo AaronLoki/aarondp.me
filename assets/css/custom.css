@@ -46,22 +46,36 @@ body {
   padding-left: 30px !important; /* Shift other sidebar items 30px to the right */
 }
 
-/* Hide default theme footer text - "site uses Just the Docs..." */
-.site-footer p:last-child {
+/* AGGRESSIVELY hide all theme footer attribution text */
+.site-footer p:last-child,
+.site-footer p:nth-child(2),
+.site-footer p:nth-last-child(1),
+.site-footer p + p,
+.site-footer .text-grey-dk-000,
+.site-footer *:contains("Just the Docs"),
+.site-footer *:contains("documentation theme"),
+.site-footer *:contains("Jekyll") {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
-.site-footer::after {
+
+/* Only show the FIRST paragraph (our custom footer) */
+.site-footer > p:first-child {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Hide everything after the first paragraph */
+.site-footer > p:first-child ~ * {
   display: none !important;
-}
-/* More aggressive footer text hiding */
-.site-footer p:contains("Just the Docs") {
-  display: none !important;
-}
-.site-footer p {
-  /* Hide any paragraph that isn't our custom one */
-}
-.site-footer p:not(:first-child) {
-  display: none !important;
+  visibility: hidden !important;
 }
 
 /* Adjust main content for sidebar */
