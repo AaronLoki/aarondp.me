@@ -48,40 +48,52 @@ body {
 
 
 
-/* Adjust main content for sidebar - aggressive overrides */
-.main-content {
-  max-width: none !important; /* Full width for dense layout */
-  width: calc(100% - 210px) !important; /* Full width minus sidebar */
-  margin-left: 210px !important; /* Match sidebar width */
-  padding-left: 30px !important; /* Minimal left padding */
-  padding-right: 30px !important; /* Balanced right padding */
+/* Force body layout to position content immediately after sidebar */
+body {
+  display: flex !important;
+  flex-direction: row !important;
 }
 
-/* Remove extra spacing from main content wrapper */
-.main-content-wrap {
+/* Sidebar stays fixed width */
+.side-bar {
+  flex: 0 0 210px !important;
+}
+
+/* Main content takes remaining space - positioned immediately after sidebar */
+#main-content,
+.main-content {
+  flex: 1 !important;
   max-width: none !important;
+  width: auto !important;
+  margin-left: 0 !important; /* No margin - flex layout handles positioning */
+  margin-right: 0 !important;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+/* Remove ALL container constraints */
+.main-content-wrap,
+.main,
+.page-content,
+.main-header,
+body > div,
+#site-wrapper,
+.site {
+  max-width: none !important;
+  width: 100% !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-/* Ensure main container uses full available width */
-.main {
-  max-width: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+/* Specifically target the main content wrapper to remove any theme margins */
+.main-content-wrap > * {
+  margin-left: 0 !important;
 }
 
-/* Override any theme max-width constraints on page content */
-.page-content {
-  max-width: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Target the main header and remove any extra margins */
-.main-header {
+/* Ensure page content starts at the left edge of its container */
+.page-content > *:first-child {
   margin-left: 0 !important;
   padding-left: 0 !important;
 }
