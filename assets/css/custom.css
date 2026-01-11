@@ -38,7 +38,7 @@ body {
 /* Site title padding adjustment - increased for more rightward shift */
 .side-bar .site-title {
   padding-left: 20px !important; /* Shift "IBDP Resources" more to the right */
-  margin-left: 20px !important; /* Additional margin for more rightward shift - increased by 10px */
+  margin-left: 40px !important; /* Additional margin for more rightward shift - increased by 20px more */
 }
 
 /* Navigation list padding adjustment - reduced from 65px to 30px */
