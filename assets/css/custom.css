@@ -32,6 +32,17 @@ body {
   width: 210px !important;
   min-width: 210px !important;
   flex: 0 0 210px !important;
+  padding-left: 10px !important; /* Add left padding to prevent text cutoff */
+}
+
+/* Site title padding adjustment */
+.side-bar .site-title {
+  padding-left: 10px !important; /* Shift "IBDP Resources" 10px to the right */
+}
+
+/* Navigation list padding adjustment */
+.side-bar .nav-list {
+  padding-left: 65px !important; /* Shift other sidebar items 65px to the right */
 }
 
 /* Adjust main content for sidebar */
