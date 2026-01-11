@@ -48,25 +48,12 @@ body {
 
 
 
-/* Force body layout to position content immediately after sidebar */
-body {
-  display: flex !important;
-  flex-direction: row !important;
-}
-
-/* Sidebar stays fixed width */
-.side-bar {
-  flex: 0 0 210px !important;
-}
-
-/* Main content takes remaining space - positioned immediately after sidebar */
+/* Main content positioning - use margin to place it after sidebar */
 #main-content,
 .main-content {
-  flex: 1 !important;
+  margin-left: 210px !important; /* Position immediately after 210px sidebar */
   max-width: none !important;
-  width: auto !important;
-  margin-left: 0 !important; /* No margin - flex layout handles positioning */
-  margin-right: 0 !important;
+  width: calc(100% - 210px) !important; /* Take remaining space */
   padding-left: 30px !important;
   padding-right: 30px !important;
 }
