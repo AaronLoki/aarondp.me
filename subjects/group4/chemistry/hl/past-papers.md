@@ -1,6 +1,5 @@
 ---
-layout: default
-nav_exclude: true
+layout: page
 title: Chemistry HL - Past Papers
 ---
 

@@ -1,6 +1,5 @@
 ---
-layout: default
-nav_exclude: true
+layout: page
 title: Mathematics AA HL - Syllabus
 ---
 

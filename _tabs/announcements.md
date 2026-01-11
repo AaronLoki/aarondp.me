@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Announcements
 icon: fas fa-bullhorn
 order: 3
 ---

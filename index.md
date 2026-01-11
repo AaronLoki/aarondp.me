@@ -1,9 +1,8 @@
 ---
-layout: default
+layout: page
 title: Home
-nav_order: 1
-description: "IBDP Resources - Comprehensive IB resources for all subjects"
-permalink: /
+icon: fas fa-home
+order: 1
 ---
 
 ## Welcome to IBDP Resources

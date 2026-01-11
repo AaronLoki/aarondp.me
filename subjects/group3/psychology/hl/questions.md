@@ -1,6 +1,5 @@
 ---
-layout: default
-nav_exclude: true
+layout: page
 title: Psychology HL - Practice Questions
 ---
 

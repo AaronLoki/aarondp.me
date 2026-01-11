@@ -1,6 +1,5 @@
 ---
-layout: default
-nav_exclude: true
+layout: page
 title: English B HL - Notes
 ---
 

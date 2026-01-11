@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: page
 title: Study Tools
-nav_order: 5
-permalink: /tools/
+icon: fas fa-tools
+order: 5
 ---
 
 # Study Tools
