@@ -48,9 +48,10 @@ body {
 
 
 
-/* Adjust main content for sidebar */
+/* Adjust main content for sidebar - aggressive overrides */
 .main-content {
   max-width: none !important; /* Full width for dense layout */
+  width: calc(100% - 210px) !important; /* Full width minus sidebar */
   margin-left: 210px !important; /* Match sidebar width */
   padding-left: 30px !important; /* Minimal left padding */
   padding-right: 30px !important; /* Balanced right padding */
@@ -60,11 +61,29 @@ body {
 .main-content-wrap {
   max-width: none !important;
   padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* Ensure main container uses full available width */
 .main {
   max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Override any theme max-width constraints on page content */
+.page-content {
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Target the main header and remove any extra margins */
+.main-header {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 /* Group colors */
