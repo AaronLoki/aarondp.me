@@ -27,16 +27,31 @@ body {
   }
 }
 
-/* Permanent sidebar width ~260px */
-.sidebar {
-  width: 260px !important;
-  flex: 0 0 260px !important;
+/* Smaller sidebar - half the original width (~130px instead of ~260px) */
+.side-bar {
+  width: 130px !important;
+  min-width: 130px !important;
+  flex: 0 0 130px !important;
 }
 
-/* Main content padding */
+/* Adjust main content for smaller sidebar */
 .main-content {
   max-width: none; /* Full width for dense layout */
-  padding-left: 280px; /* Adjust for sidebar */
+  margin-left: 130px !important; /* Match sidebar width */
+  padding-left: 20px;
+}
+
+/* Make sidebar text smaller to fit */
+.side-bar .site-title {
+  font-size: 14px !important;
+}
+
+.side-bar .nav-list {
+  font-size: 12px !important;
+}
+
+.side-bar .nav-list .nav-list-item {
+  font-size: 12px !important;
 }
 
 /* Group colors */

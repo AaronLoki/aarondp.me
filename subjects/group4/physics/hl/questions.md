@@ -12,9 +12,3 @@ Practice questions and exercises for Physics HL.
 
 *Practice questions coming soon.*
 
-### Tips for Practice
-
-- Start with easier questions
-- Time yourself
-- Review mark schemes
-- Identify weak areas
