@@ -35,14 +35,19 @@ body {
   padding-left: 10px !important; /* Add left padding to prevent text cutoff */
 }
 
-/* Site title padding adjustment */
+/* Site title padding adjustment - increased for more rightward shift */
 .side-bar .site-title {
-  padding-left: 10px !important; /* Shift "IBDP Resources" 10px to the right */
+  padding-left: 20px !important; /* Shift "IBDP Resources" more to the right */
 }
 
-/* Navigation list padding adjustment */
+/* Navigation list padding adjustment - reduced from 65px to 30px */
 .side-bar .nav-list {
-  padding-left: 65px !important; /* Shift other sidebar items 65px to the right */
+  padding-left: 30px !important; /* Shift other sidebar items 30px to the right */
+}
+
+/* Hide default theme footer text */
+.site-footer::after {
+  display: none !important;
 }
 
 /* Adjust main content for sidebar */
