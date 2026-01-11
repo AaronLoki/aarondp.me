@@ -34,7 +34,6 @@ body {
   flex: 0 0 210px !important;
   padding-left: 10px !important; /* Add left padding to prevent text cutoff */
   z-index: 100 !important; /* Ensure sidebar is clickable and above other content */
-  position: relative !important;
 }
 
 /* Site title padding adjustment - increased for more rightward shift */
@@ -58,8 +57,6 @@ body {
   width: calc(100% - 210px) !important; /* Take remaining space */
   padding-left: 30px !important;
   padding-right: 30px !important;
-  z-index: 1 !important; /* Lower than sidebar to prevent blocking */
-  position: relative !important;
 }
 
 /* Remove ALL container constraints */
