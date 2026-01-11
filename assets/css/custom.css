@@ -46,37 +46,7 @@ body {
   padding-left: 30px !important; /* Shift other sidebar items 30px to the right */
 }
 
-/* AGGRESSIVELY hide all theme footer attribution text */
-.site-footer p:last-child,
-.site-footer p:nth-child(2),
-.site-footer p:nth-last-child(1),
-.site-footer p + p,
-.site-footer .text-grey-dk-000,
-.site-footer *:contains("Just the Docs"),
-.site-footer *:contains("documentation theme"),
-.site-footer *:contains("Jekyll") {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
-/* Only show the FIRST paragraph (our custom footer) */
-.site-footer > p:first-child {
-  display: block !important;
-  visibility: visible !important;
-}
-
-/* Hide everything after the first paragraph */
-.site-footer > p:first-child ~ * {
-  display: none !important;
-  visibility: hidden !important;
-}
 
 /* Adjust main content for sidebar */
 .main-content {
