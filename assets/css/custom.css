@@ -2,6 +2,7 @@
 body {
   min-width: 1200px;
   overflow-x: auto; /* Horizontal scroll if smaller */
+  padding-top: 60px !important; /* Add padding to account for fixed header */
 }
 
 /* Hide on mobile/small screens */
@@ -27,21 +28,31 @@ body {
   }
 }
 
+/* Header and search bar positioning - fixed at top, always visible */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  background: white !important; /* Ensure it has a background */
+  border-bottom: 1px solid #eeebee !important; /* Add subtle border */
+}
+
+.search,
+.search-input-wrap,
+.search-input {
+  z-index: 100 !important; /* Ensure search bar is above sidebar */
+}
+
 /* Sidebar width set to 210px */
 .side-bar {
   width: 210px !important;
   min-width: 210px !important;
   flex: 0 0 210px !important;
   padding-left: 10px !important; /* Add left padding to prevent text cutoff */
+  padding-top: 60px !important; /* Add padding to account for fixed header, aligns with body */
   z-index: 10 !important; /* Lower z-index so search bar can appear above it */
-}
-
-/* Header and search bar positioning - ensure they appear above sidebar */
-.site-header,
-.search,
-.search-input-wrap,
-.search-input {
-  z-index: 100 !important; /* Ensure search bar is above sidebar */
 }
 
 /* Site title padding adjustment - increased for more rightward shift */
