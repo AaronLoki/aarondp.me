@@ -1,3 +1,8 @@
+---
+layout: default
+title: File Upload Guide
+---
+
 # File Upload Guide for IB Grade Study Website
 
 This guide explains how to add content (notes, past papers, PDFs, etc.) to the IB Grade Study website.
