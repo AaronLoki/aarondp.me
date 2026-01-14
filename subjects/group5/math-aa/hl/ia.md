@@ -1,5 +1,6 @@
 ---
 layout: default
+nav_exclude: true
 title: Mathematics AA HL - Internal Assessment
 ---
 
