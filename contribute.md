@@ -17,6 +17,10 @@ Help make this resource better for everyone! We welcome contributions from stude
 - **Past Papers**: Organized past examination papers
 - **IA Examples**: Exemplary Internal Assessment samples (with permission)
 
+**📤 New to uploading files?** 
+- [Quick Upload Reference](/quick-upload.html) - Fast 3-step guide
+- [Full Upload Guide](/UPLOAD_GUIDE.html) - Complete instructions
+
 ### Improve Existing Content
 
 - Fix errors or typos

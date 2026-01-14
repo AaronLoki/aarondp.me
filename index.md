@@ -53,6 +53,8 @@ Your comprehensive resource for International Baccalaureate studies. Navigate th
 - [Study Tools & Resources](/tools/)
 - [General Resources](/resources/)
 - [Contribute](/contribute/)
+- [Quick Upload Guide](/quick-upload.html) - Add content in 3 steps
+- [Full Upload Guide](/UPLOAD_GUIDE.html) - Complete documentation
 - [Announcements](/announcements/)
 
 ---
