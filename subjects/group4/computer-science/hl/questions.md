@@ -1,5 +1,6 @@
 ---
 layout: default
+nav_exclude: true
 title: Computer Science HL - Practice Questions
 ---
 
@@ -11,9 +12,3 @@ Practice questions and exercises for Computer Science HL.
 
 *Practice questions coming soon.*
 
-### Tips for Practice
-
-- Start with easier questions
-- Time yourself
-- Review mark schemes
-- Identify weak areas

@@ -1,5 +1,6 @@
 ---
 layout: default
+nav_exclude: true
 title: Chinese A HL - Practice Questions
 ---
 
@@ -11,9 +12,3 @@ Practice questions and exercises for Chinese A HL.
 
 *Practice questions coming soon.*
 
-### Tips for Practice
-
-- Start with easier questions
-- Time yourself
-- Review mark schemes
-- Identify weak areas

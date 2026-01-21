@@ -1,18 +1,32 @@
-title: IB Grade Study
+title: IBDP Resources
 description: Comprehensive IB resources • HL/SL separated • All subjects
-remote_theme: tomjoht/documentation-theme-jekyll
-# Or the latest fork if needed: pmarsceill/just-the-docs (very similar, also excellent)
+remote_theme: just-the-docs/just-the-docs
 
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
 
-# Theme-specific config (adjust as needed)
-theme_config:
-  sidebar:
-    accordion: true  # Collapses other sections when one expands
-  search_enabled: true
-  back_to_top: true
+# Just the Docs theme configuration
+search_enabled: true
+heading_anchors: true
+
+# Auxiliary navigation (top right)
+aux_links:
+  "Home":
+    - "https://aarondp.me"
+
+# Footer
+footer_content: "IBDP Resources - Free resources for BIBA students | Support the site: ibresourcesbiba@outlook.com"
+
+# Hide the theme credit and powered by message
+last_edit_timestamp: false
+back_to_top: false
+back_to_top_text: null
+gh_edit_link: false
+gh_edit_link_text: null
+gh_edit_repository: null
+gh_edit_branch: null
+gh_edit_view_mode: null
 
 # Your custom settings
 baseurl: ""  # Empty for root domain

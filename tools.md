@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Study Tools
+nav_order: 5
 permalink: /tools/
 ---
 
