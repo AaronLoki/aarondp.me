@@ -54,12 +54,12 @@ cd aarondp.me
 
 ```bash
 # 1. Create necessary directories if they don't exist
-mkdir -p assets/files/physics-hl
-mkdir -p assets/files/chemistry-hl
+mkdir -p assets/files/physics
+mkdir -p assets/files/chemistry
 
 # 2. Copy your files to the repository
 # For PDFs:
-cp ~/Downloads/physics-paper1-2023.pdf assets/files/physics-hl/
+cp ~/Downloads/physics-paper1-2023.pdf assets/files/physics/
 
 # For markdown content:
 cp ~/Downloads/my-notes.md subjects/group4/physics/hl/
@@ -82,8 +82,8 @@ git push origin main
 aarondp.me/
 ├── assets/
 │   ├── files/           # PDFs and documents
-│   │   ├── physics-hl/
-│   │   ├── chemistry-hl/
+│   │   ├── physics/
+│   │   ├── chemistry/
 │   │   └── ...
 │   ├── images/          # Images and diagrams
 │   └── css/             # Stylesheets
@@ -125,8 +125,8 @@ Once you've uploaded a PDF, you can link to it from any markdown page:
 ```markdown
 ## Past Papers
 
-- [Physics Paper 1 - May 2023](/assets/files/physics-hl/paper1-may-2023.pdf)
-- [Physics Paper 2 - May 2023](/assets/files/physics-hl/paper2-may-2023.pdf)
+- [Physics Paper 1 - May 2023](/assets/files/physics/paper1-may-2023.pdf)
+- [Physics Paper 2 - May 2023](/assets/files/physics/paper2-may-2023.pdf)
 ```
 
 ### Embedding Images
@@ -138,14 +138,14 @@ Once you've uploaded a PDF, you can link to it from any markdown page:
 ### Creating Download Buttons
 
 ```markdown
-[Download PDF](/assets/files/physics-hl/notes.pdf){: .btn .btn-primary}
+[Download PDF](/assets/files/physics/notes.pdf){: .btn .btn-primary}
 ```
 
 ## Adding Content to Existing Pages
 
 ### Example: Adding Past Papers to Physics HL
 
-1. Upload your PDF files to `assets/files/physics-hl/`
+1. Upload your PDF files to `assets/files/physics/`
 2. Edit the file `subjects/group4/physics/hl/past-papers.md`
 3. Add links to your files:
 
@@ -162,13 +162,13 @@ Past examination papers for Physics HL.
 ## Available Papers
 
 ### 2023 Papers
-- [Paper 1 - May 2023](/assets/files/physics-hl/paper1-may-2023.pdf)
-- [Paper 2 - May 2023](/assets/files/physics-hl/paper2-may-2023.pdf)
-- [Paper 3 - May 2023](/assets/files/physics-hl/paper3-may-2023.pdf)
+- [Paper 1 - May 2023](/assets/files/physics/paper1-may-2023.pdf)
+- [Paper 2 - May 2023](/assets/files/physics/paper2-may-2023.pdf)
+- [Paper 3 - May 2023](/assets/files/physics/paper3-may-2023.pdf)
 
 ### 2022 Papers
-- [Paper 1 - May 2022](/assets/files/physics-hl/paper1-may-2022.pdf)
-- [Paper 2 - May 2022](/assets/files/physics-hl/paper2-may-2022.pdf)
+- [Paper 1 - May 2022](/assets/files/physics/paper1-may-2022.pdf)
+- [Paper 2 - May 2022](/assets/files/physics/paper2-may-2022.pdf)
 
 ### Exam Strategy
 

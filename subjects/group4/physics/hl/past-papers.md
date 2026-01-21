@@ -15,14 +15,14 @@ Past examination papers for Physics HL.
 
 To add past papers to this page:
 
-1. Upload PDF files to `/assets/files/physics-hl/` directory
+1. Upload PDF files to `/assets/files/physics/` directory
 2. Follow naming convention: `paperX-month-year.pdf` (e.g., `paper1-may-2023.pdf`)
 3. Add links below in this format:
 
 ```markdown
 ### 2023 Papers
-- [Paper 1 - May 2023](/assets/files/physics-hl/paper1-may-2023.pdf)
-- [Paper 2 - May 2023](/assets/files/physics-hl/paper2-may-2023.pdf)
+- [Paper 1 - May 2023](/assets/files/physics/paper1-may-2023.pdf)
+- [Paper 2 - May 2023](/assets/files/physics/paper2-may-2023.pdf)
 ```
 
 For detailed instructions, see the [File Upload Guide](/UPLOAD_GUIDE.html).

@@ -16,8 +16,8 @@ Comprehensive notes for Physics HL.
 You can add notes in two ways:
 
 **1. As Downloadable PDFs:**
-- Upload PDF files to `/assets/files/physics-hl/`
-- Link them here: `[Topic Name Notes](/assets/files/physics-hl/topic-notes.pdf)`
+- Upload PDF files to `/assets/files/physics/`
+- Link them here: `[Topic Name Notes](/assets/files/physics/topic-notes.pdf)`
 
 **2. As Markdown Content:**
 - Create new `.md` files in this directory (e.g., `mechanics-notes.md`)

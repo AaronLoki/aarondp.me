@@ -8,12 +8,12 @@ Files should be organized by subject and level:
 
 ```
 files/
-├── physics-hl/
+├── physics/
 ├── physics-sl/
-├── chemistry-hl/
+├── chemistry/
 ├── chemistry-sl/
-├── biology-hl/
-├── math-aa-hl/
+├── biology/
+├── math-aa/
 └── ...
 ```
 

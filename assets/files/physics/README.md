@@ -1,6 +1,6 @@
-# Physics HL Files
+# Physics Files
 
-Upload Physics HL past papers, notes, and other resources to this directory.
+Upload Physics past papers, notes, and other resources to this directory.
 
 ## Naming Convention
 

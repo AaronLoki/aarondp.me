@@ -17,7 +17,7 @@ title: Quick Upload Reference
 
 ```bash
 # 1. Copy your file to the right location
-cp myfile.pdf /path/to/aarondp.me/assets/files/physics-hl/
+cp myfile.pdf /path/to/aarondp.me/assets/files/physics/
 
 # 2. Commit and push
 git add .
@@ -29,17 +29,17 @@ git push origin main
 
 | Content Type | Location | Example |
 |-------------|----------|---------|
-| Past Papers (PDF) | `/assets/files/[subject]/` | `/assets/files/physics-hl/paper1-2023.pdf` |
-| Notes (PDF) | `/assets/files/[subject]/` | `/assets/files/chemistry-hl/organic-notes.pdf` |
+| Past Papers (PDF) | `/assets/files/[subject]/` | `/assets/files/physics/paper1-2023.pdf` |
+| Notes (PDF) | `/assets/files/[subject]/` | `/assets/files/chemistry/organic-notes.pdf` |
 | Images | `/assets/images/[subject]/` | `/assets/images/physics/diagram.png` |
 | Page Content (Markdown) | `/subjects/group[X]/[subject]/[level]/` | `/subjects/group4/physics/hl/notes.md` |
 
 ## 🔗 Link to Files
 
-After uploading a PDF to `/assets/files/physics-hl/paper1-2023.pdf`, add this to your markdown page:
+After uploading a PDF to `/assets/files/physics/paper1-2023.pdf`, add this to your markdown page:
 
 ```markdown
-[Paper 1 - May 2023](/assets/files/physics-hl/paper1-2023.pdf)
+[Paper 1 - May 2023](/assets/files/physics/paper1-2023.pdf)
 ```
 
 ## ✅ File Naming Rules

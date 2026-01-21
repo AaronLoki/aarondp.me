@@ -37,9 +37,9 @@ aarondp.me/
 ├── assets/
 │   ├── css/                 # Stylesheets
 │   ├── files/               # PDFs and downloadable documents
-│   │   ├── physics-hl/
-│   │   ├── chemistry-hl/
-│   │   ├── biology-hl/
+│   │   ├── physics/
+│   │   ├── chemistry/
+│   │   ├── biology/
 │   │   └── ...
 │   └── images/              # Images and diagrams
 └── subjects/                # Subject-specific content
@@ -70,7 +70,7 @@ bundle exec jekyll serve
 
 Upload to: `assets/files/[subject]/`
 
-Example: `assets/files/physics-hl/paper1-may-2023.pdf`
+Example: `assets/files/physics/paper1-may-2023.pdf`
 
 ### For Subject Pages
 
