@@ -181,6 +181,8 @@ function toggleLevels(subjectId) {
 - [About IBDP Resources](/about/)
 - [Study Tools & Resources](/tools/)
 - [Contribute](/contribute/)
+- [Quick Upload Guide](/quick-upload.html) - Add content in 3 steps
+- [Full Upload Guide](/UPLOAD_GUIDE.html) - Complete documentation
 - [Announcements](/announcements/)
 
 ---
