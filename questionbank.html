@@ -1,0 +1,631 @@
+---
+layout: blank
+title: Question Bank
+nav_order: 4
+permalink: /questionbank/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB DP Resource & Assessment Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .active-nav { border-bottom: 2px solid #0f172a; color: #0f172a; font-weight: 600; }
+        .nav-item { cursor: pointer; transition: all 0.2s; }
+        .nav-item:hover { color: #0f172a; }
+        /* Custom scrollbar for question list */
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Chosen Palette: Warm Neutrals (Slate/Zinc) with Academic Blue Accents -->
+    <!-- Application Structure Plan: 
+         1. Header: Navigation and Context.
+         2. Strategy Section: Explains the classification taxonomy (Methodology).
+         3. Dashboard Section: The core "Question Bank" interaction. Filterable list + Data Viz.
+         4. Assessment Section: A drill-down view simulating taking a question and checking the markscheme.
+         This structure moves from Theory (How to classify) -> Practice (Finding questions) -> Action (Doing questions).
+    -->
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-slate-800 tracking-tight">IB<span class="text-blue-600">Resource</span>Hub</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-item active-nav inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-900 h-full">Question Bank</a>
+                        <a onclick="switchTab('methodology')" id="nav-methodology" class="nav-item inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-500 h-full">Classification Method</a>
+                        <a onclick="switchTab('analytics')" id="nav-analytics" class="nav-item inline-flex items-center px-1 pt-1 text-sm font-medium text-slate-500 h-full">Performance Analytics</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button onclick="window.location.href='/quick-upload/'" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Upload Paper</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- VIEW 1: DASHBOARD / QUESTION BANK -->
+        <div id="view-dashboard" class="space-y-8 animate-fade-in">
+            
+            <!-- Intro -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
+                <h1 class="text-2xl font-bold text-slate-900 mb-2">Resource Explorer</h1>
+                <p class="text-slate-600 leading-relaxed">
+                    This interface demonstrates the optimal architecture for an IB DP resource platform. 
+                    It combines a <span class="font-semibold text-blue-600">hierarchical classification system</span> 
+                    with direct access to <span class="font-semibold text-blue-600">mark schemes</span>. 
+                    Select filters below to narrow down the past paper database by specific topics (e.g., Calculus, Algebra) 
+                    and difficulty levels, allowing for targeted revision sessions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- Filters Panel -->
+                <div class="lg:col-span-3 space-y-6">
+                    <div class="glass-panel rounded-xl p-5">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-semibold text-slate-800">Filters</h3>
+                            <button onclick="resetFilters()" class="text-xs text-blue-600 hover:text-blue-800 font-medium">Reset</button>
+                        </div>
+                        
+                        <!-- Topic Filter -->
+                        <div class="mb-5">
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Topic</label>
+                            <div class="space-y-2" id="topic-filters">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Difficulty Filter -->
+                        <div class="mb-5">
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Difficulty</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-blue-600 rounded border-slate-300" onchange="filterData()" value="Hard" name="difficulty">
+                                    <span class="text-sm text-slate-700">Hard (Band 6-7)</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-blue-600 rounded border-slate-300" onchange="filterData()" value="Medium" name="difficulty">
+                                    <span class="text-sm text-slate-700">Medium (Band 4-5)</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox text-blue-600 rounded border-slate-300" onchange="filterData()" value="Easy" name="difficulty">
+                                    <span class="text-sm text-slate-700">Easy (Band 1-3)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Paper Type Filter -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Paper</label>
+                            <select id="paper-select" onchange="filterData()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                                <option value="all">All Papers</option>
+                                <option value="Paper 1">Paper 1 (Non-Calc)</option>
+                                <option value="Paper 2">Paper 2 (Calc)</option>
+                                <option value="Paper 3">Paper 3 (Investigation)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Mini Stat -->
+                    <div class="bg-blue-50 rounded-xl p-5 border border-blue-100">
+                        <div class="text-sm font-medium text-blue-800 mb-1">Total Questions Available</div>
+                        <div class="text-3xl font-bold text-blue-900" id="total-count-display">0</div>
+                        <p class="text-xs text-blue-600 mt-2">Filtered from Master DB</p>
+                    </div>
+                </div>
+
+                <!-- Question List -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden h-[600px] flex flex-col">
+                        <div class="p-4 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
+                            <h3 class="font-semibold text-slate-800">Question Database</h3>
+                            <div class="text-xs text-slate-500">Sorted by: <span class="font-medium text-slate-700">Year (Desc)</span></div>
+                        </div>
+                        <div id="question-list-container" class="overflow-y-auto p-4 space-y-3 flex-grow custom-scroll bg-slate-50/50">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assessment / Preview Panel -->
+                <div class="lg:col-span-3 space-y-6">
+                    <div class="glass-panel rounded-xl p-5 sticky top-24">
+                        <h3 class="font-semibold text-slate-800 mb-4 border-b border-slate-100 pb-2">Active Assessment</h3>
+                        
+                        <div id="selection-placeholder" class="text-center py-10">
+                            <div class="text-4xl mb-3 text-slate-300">✎</div>
+                            <p class="text-sm text-slate-500">Select a question from the list to view details and mark scheme.</p>
+                        </div>
+
+                        <div id="question-detail-view" class="hidden">
+                            <div class="mb-4">
+                                <span id="detail-tag" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                    Calculus
+                                </span>
+                                <span id="detail-diff" class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+                                    Hard
+                                </span>
+                            </div>
+                            
+                            <h4 id="detail-title" class="text-lg font-bold text-slate-900 mb-2">Question Title</h4>
+                            <p id="detail-desc" class="text-sm text-slate-600 mb-6 font-serif">
+                                Find the integral of f(x) = x^2 * sin(x)...
+                            </p>
+
+                            <div class="space-y-3">
+                                <button onclick="toggleMarkscheme()" class="w-full flex justify-between items-center px-4 py-2 border border-slate-300 shadow-sm text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50">
+                                    <span>Show Markscheme</span>
+                                    <span id="ms-icon">▼</span>
+                                </button>
+                                
+                                <div id="markscheme-panel" class="hidden bg-green-50 border border-green-200 rounded-md p-4 text-sm text-green-900 font-mono">
+                                    Loading solution key...
+                                </div>
+                            </div>
+
+                            <!-- Self Assessment -->
+                            <div class="mt-8 pt-4 border-t border-slate-100">
+                                <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Self Assess</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button onclick="logAssessment('low')" class="px-2 py-2 border border-red-200 bg-red-50 text-red-700 rounded text-xs font-medium hover:bg-red-100">Hard</button>
+                                    <button onclick="logAssessment('mid')" class="px-2 py-2 border border-yellow-200 bg-yellow-50 text-yellow-700 rounded text-xs font-medium hover:bg-yellow-100">Okay</button>
+                                    <button onclick="logAssessment('high')" class="px-2 py-2 border border-green-200 bg-green-50 text-green-700 rounded text-xs font-medium hover:bg-green-100">Easy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 2: METHODOLOGY -->
+        <div id="view-methodology" class="hidden space-y-8 animate-fade-in">
+            <div class="bg-white rounded-xl p-8 shadow-sm border border-slate-200">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Classification Methodology</h2>
+                <div class="prose max-w-none text-slate-600">
+                    <p class="text-lg mb-6">
+                        To effectively organize a Question Bank for IB DP, a robust taxonomy is required. 
+                        This section outlines the logic used to classify the resources in this web application.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-slate-800 mb-3">1. The Taxonomy Tree</h3>
+                            <p class="mb-4">Every question is tagged with a three-level hierarchy to ensure precise retrieval:</p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>Domain (Subject):</strong> e.g., Mathematics AA HL</li>
+                                <li><strong>Topic (Unit):</strong> e.g., Calculus, Statistics</li>
+                                <li><strong>Sub-topic (Skill):</strong> e.g., Chain Rule, Normal Distribution</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Data Structure Example</h3>
+                            <pre class="bg-slate-800 text-blue-300 p-4 rounded text-xs overflow-x-auto">
+{
+  "id": "Q-2023-P1-05",
+  "meta": {
+    "year": 2023,
+    "session": "May",
+    "paper": "Paper 1"
+  },
+  "classification": {
+    "topic": "Calculus",
+    "sub_topic": "Integration by Parts",
+    "difficulty": "Hard"
+  },
+  "assets": {
+    "question_text": "...",
+    "markscheme_ref": "MS-2023-P1-05"
+  }
+}</pre>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-slate-100">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-3">2. Difficulty Assessment Logic</h3>
+                        <p class="mb-4">
+                            Questions are not just classified by content, but by cognitive demand. This platform uses the following rubric:
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="p-4 border border-green-200 bg-green-50 rounded-lg">
+                                <div class="font-bold text-green-800 mb-1">Level 1: Routine</div>
+                                <div class="text-sm text-green-700">Direct application of formulas. Single-step problems. (Band 1-3)</div>
+                            </div>
+                            <div class="p-4 border border-yellow-200 bg-yellow-50 rounded-lg">
+                                <div class="font-bold text-yellow-800 mb-1">Level 2: Complex</div>
+                                <div class="text-sm text-yellow-700">Multi-step problems requiring connection of two concepts. (Band 4-5)</div>
+                            </div>
+                            <div class="p-4 border border-red-200 bg-red-50 rounded-lg">
+                                <div class="font-bold text-red-800 mb-1">Level 3: Abstract</div>
+                                <div class="text-sm text-red-700">Unfamiliar contexts, requires proof or synthesis of disparate topics. (Band 6-7)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 3: ANALYTICS -->
+        <div id="view-analytics" class="hidden space-y-8 animate-fade-in">
+             <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 mb-8">
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Database Analytics</h2>
+                <p class="text-slate-600">
+                    Visualizing the composition of the question bank allows students to identify which topics are most heavily examined 
+                    and how difficulty is distributed across papers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chart 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Topic Weighting (Frequency)</h3>
+                    <div class="chart-container">
+                        <canvas id="topicChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-slate-500 mt-4">Distribution of questions by primary topic across all years.</p>
+                </div>
+
+                <!-- Chart 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Difficulty Composition</h3>
+                    <div class="chart-container">
+                        <canvas id="difficultyChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-slate-500 mt-4">Ratio of Easy/Medium/Hard questions per Paper type.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA CONSTANTS ---
+        // Defined first to avoid Temporal Dead Zone (hoisting) issues
+        const TOPICS_DATA = ["Calculus", "Algebra", "Functions", "Statistics", "Geometry"];
+
+        // --- GENERATOR HELPER ---
+        function generateMockQuestions(count) {
+            const arr = [];
+            const difficulties = ['Easy', 'Medium', 'Hard'];
+            const papers = ['Paper 1', 'Paper 2', 'Paper 3'];
+            
+            for(let i=0; i<count; i++) {
+                // Now accessing TOPICS_DATA directly instead of db.topics
+                const topic = TOPICS_DATA[Math.floor(Math.random() * TOPICS_DATA.length)];
+                const year = 2016 + Math.floor(Math.random() * 8); // 2016-2023
+                const diff = difficulties[Math.floor(Math.random() * difficulties.length)];
+                const paper = papers[Math.floor(Math.random() * papers.length)];
+                
+                arr.push({
+                    id: `Q-${year}-${i}`,
+                    title: `${topic} Question ${i+1}`,
+                    year: year,
+                    topic: topic,
+                    difficulty: diff,
+                    paper: paper,
+                    desc: getMockDesc(topic),
+                    markscheme: `(M1) Attempt to use formula for ${topic}...\n(A1) Correct substitution...\n(A1) Final Answer.`,
+                    marks: 4 + Math.floor(Math.random() * 6)
+                });
+            }
+            return arr.sort((a,b) => b.year - a.year);
+        }
+
+        function getMockDesc(topic) {
+            const bank = {
+                "Calculus": "Find the volume of revolution generated by rotating the curve y = f(x) about the x-axis...",
+                "Algebra": "Find the coefficient of the x^3 term in the binomial expansion of (2x - 1)^8...",
+                "Functions": "The function f is defined by f(x) = ln(x). Find the inverse function f^-1(x)...",
+                "Statistics": "Given X ~ N(10, 2^2), find the probability that P(X > 12)...",
+                "Geometry": "Show that the vectors a and b are perpendicular given the scalar product is zero..."
+            };
+            return bank[topic];
+        }
+
+        // --- DATA STORE ---
+        // Mock data representing the "Source Report" content (The Past Paper Database)
+        const db = {
+            topics: TOPICS_DATA,
+            questions: generateMockQuestions(85) // Generate 85 mock questions
+        };
+
+        const state = {
+            currentView: 'dashboard',
+            filters: {
+                topics: [], // Empty means all
+                difficulties: [],
+                paper: 'all'
+            },
+            selectedQuestionId: null
+        };
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTopicFilters();
+            renderQuestionList();
+            initCharts();
+            updateStats();
+        });
+
+        // --- NAVIGATION ---
+        function switchTab(viewId) {
+            // Update UI State
+            ['dashboard', 'methodology', 'analytics'].forEach(id => {
+                document.getElementById(`view-${id}`).classList.add('hidden');
+                document.getElementById(`nav-${id}`).classList.remove('active-nav', 'text-slate-900');
+                document.getElementById(`nav-${id}`).classList.add('text-slate-500');
+            });
+            
+            document.getElementById(`view-${viewId}`).classList.remove('hidden');
+            document.getElementById(`nav-${viewId}`).classList.add('active-nav', 'text-slate-900');
+            document.getElementById(`nav-${viewId}`).classList.remove('text-slate-500');
+            
+            state.currentView = viewId;
+        }
+
+        // --- RENDER LOGIC ---
+        function renderTopicFilters() {
+            const container = document.getElementById('topic-filters');
+            container.innerHTML = '';
+            
+            db.topics.forEach(topic => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between group cursor-pointer hover:bg-slate-50 p-1 rounded';
+                div.innerHTML = `
+                    <label class="flex items-center space-x-2 cursor-pointer flex-grow">
+                        <input type="checkbox" class="form-checkbox text-blue-600 rounded border-slate-300" 
+                            onchange="filterData()" value="${topic}" name="topic">
+                        <span class="text-sm text-slate-700 group-hover:text-blue-700 transition-colors">${topic}</span>
+                    </label>
+                    <span class="text-xs text-slate-400 bg-slate-100 px-1.5 rounded-full">${db.questions.filter(q => q.topic === topic).length}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderQuestionList() {
+            const container = document.getElementById('question-list-container');
+            container.innerHTML = '';
+            
+            const filtered = getFilteredQuestions();
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-slate-400 text-sm">No questions match your filters.</div>`;
+                return;
+            }
+
+            filtered.forEach(q => {
+                const item = document.createElement('div');
+                const isSelected = state.selectedQuestionId === q.id;
+                
+                // Card styling based on difficulty
+                let borderClass = 'border-l-4 border-l-slate-300'; // Default/Easy
+                if(q.difficulty === 'Medium') borderClass = 'border-l-4 border-l-yellow-400';
+                if(q.difficulty === 'Hard') borderClass = 'border-l-4 border-l-red-500';
+
+                item.className = `bg-white p-4 rounded shadow-sm border border-slate-200 cursor-pointer hover:shadow-md transition-all ${borderClass} ${isSelected ? 'ring-2 ring-blue-500 ring-offset-1' : ''}`;
+                item.onclick = () => selectQuestion(q.id);
+                
+                item.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">${q.year} • ${q.paper}</span>
+                            <h4 class="text-sm font-semibold text-slate-900">${q.title}</h4>
+                        </div>
+                        <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${q.marks} marks</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-2">
+                        <span class="text-xs bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded border border-blue-100">${q.topic}</span>
+                        <span class="text-xs text-slate-400">${q.difficulty}</span>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+
+            document.getElementById('total-count-display').innerText = filtered.length;
+        }
+
+        // --- INTERACTION LOGIC ---
+        function filterData() {
+            // Collect filters
+            const topicCbs = document.querySelectorAll('input[name="topic"]:checked');
+            state.filters.topics = Array.from(topicCbs).map(cb => cb.value);
+
+            const diffCbs = document.querySelectorAll('input[name="difficulty"]:checked');
+            state.filters.difficulties = Array.from(diffCbs).map(cb => cb.value);
+
+            state.filters.paper = document.getElementById('paper-select').value;
+
+            renderQuestionList();
+            updateCharts(); // Also update charts to reflect filtered data
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('paper-select').value = 'all';
+            filterData();
+        }
+
+        function getFilteredQuestions() {
+            return db.questions.filter(q => {
+                const matchTopic = state.filters.topics.length === 0 || state.filters.topics.includes(q.topic);
+                const matchDiff = state.filters.difficulties.length === 0 || state.filters.difficulties.includes(q.difficulty);
+                const matchPaper = state.filters.paper === 'all' || state.filters.paper === q.paper;
+                return matchTopic && matchDiff && matchPaper;
+            });
+        }
+
+        function selectQuestion(id) {
+            state.selectedQuestionId = id;
+            renderQuestionList(); // Re-render to show selection ring
+            
+            const q = db.questions.find(x => x.id === id);
+            if(!q) return;
+
+            // Update UI
+            document.getElementById('selection-placeholder').classList.add('hidden');
+            document.getElementById('question-detail-view').classList.remove('hidden');
+            
+            document.getElementById('detail-tag').innerText = q.topic;
+            document.getElementById('detail-diff').innerText = q.difficulty;
+            document.getElementById('detail-title').innerText = `${q.title} (${q.year})`;
+            document.getElementById('detail-desc').innerText = q.desc;
+            
+            // Reset markscheme view
+            document.getElementById('markscheme-panel').classList.add('hidden');
+            document.getElementById('markscheme-panel').innerText = q.markscheme;
+            document.getElementById('ms-icon').innerText = '▼';
+        }
+
+        function toggleMarkscheme() {
+            const panel = document.getElementById('markscheme-panel');
+            const icon = document.getElementById('ms-icon');
+            
+            if(panel.classList.contains('hidden')) {
+                panel.classList.remove('hidden');
+                icon.innerText = '▲';
+            } else {
+                panel.classList.add('hidden');
+                icon.innerText = '▼';
+            }
+        }
+
+        function logAssessment(level) {
+            // In a real app, this would save to DB
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "Saved!";
+            btn.classList.add('ring-2', 'ring-offset-1');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('ring-2', 'ring-offset-1');
+            }, 1000);
+        }
+
+        // --- CHARTING LOGIC ---
+        let topicChartInstance = null;
+        let difficultyChartInstance = null;
+
+        function initCharts() {
+            // Chart 1: Topic Distribution
+            const ctx1 = document.getElementById('topicChart').getContext('2d');
+            topicChartInstance = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: db.topics,
+                    datasets: [{
+                        data: [10, 10, 10, 10, 10], // Initial dummy data
+                        backgroundColor: [
+                            '#3b82f6', '#6366f1', '#8b5cf6', '#ec4899', '#14b8a6'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                    }
+                }
+            });
+
+            // Chart 2: Difficulty Stacked Bar
+            const ctx2 = document.getElementById('difficultyChart').getContext('2d');
+            difficultyChartInstance = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Paper 1', 'Paper 2', 'Paper 3'],
+                    datasets: [
+                        { label: 'Easy', data: [0,0,0], backgroundColor: '#86efac' },
+                        { label: 'Medium', data: [0,0,0], backgroundColor: '#fcd34d' },
+                        { label: 'Hard', data: [0,0,0], backgroundColor: '#fca5a5' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true },
+                        y: { stacked: true, beginAtZero: true }
+                    }
+                }
+            });
+            
+            updateCharts();
+        }
+
+        function updateCharts() {
+            const currentData = getFilteredQuestions();
+
+            // Update Topic Chart
+            const topicCounts = db.topics.map(t => currentData.filter(q => q.topic === t).length);
+            topicChartInstance.data.datasets[0].data = topicCounts;
+            topicChartInstance.update();
+
+            // Update Difficulty Chart
+            const p1 = currentData.filter(q => q.paper === 'Paper 1');
+            const p2 = currentData.filter(q => q.paper === 'Paper 2');
+            const p3 = currentData.filter(q => q.paper === 'Paper 3');
+
+            const getData = (arr, diff) => arr.filter(q => q.difficulty === diff).length;
+
+            difficultyChartInstance.data.datasets[0].data = [getData(p1, 'Easy'), getData(p2, 'Easy'), getData(p3, 'Easy')];
+            difficultyChartInstance.data.datasets[1].data = [getData(p1, 'Medium'), getData(p2, 'Medium'), getData(p3, 'Medium')];
+            difficultyChartInstance.data.datasets[2].data = [getData(p1, 'Hard'), getData(p2, 'Hard'), getData(p3, 'Hard')];
+            difficultyChartInstance.update();
+        }
+
+        function updateStats() {
+            // Initial stats load
+            document.getElementById('total-count-display').innerText = db.questions.length;
+        }
+
+    </script>
+    
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- Visualization & Content Choices: 
+         1. Topic Weighting (Doughnut Chart): Goal -> Inform. Shows which topics are most prevalent in the filtered set.
+         2. Difficulty Trends (Stacked Bar): Goal -> Compare. Compares difficulty spread across different paper types.
+         3. Question List (Interactive DOM): Goal -> Organize. Primary method for classifying and retrieving content.
+         All visualizations use Chart.js within constrained containers.
+    -->
+</body>
+</html>
