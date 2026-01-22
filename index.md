@@ -179,6 +179,7 @@ function toggleLevels(subjectId) {
 ### Quick Links
 
 - [About IBDP Resources](/about/)
+- [Question Bank](/questionbank/) - Interactive past paper database with topic filters
 - [Study Tools & Resources](/tools/)
 - [Contribute](/contribute/)
 - [Quick Upload Guide](/quick-upload.html) - Add content in 3 steps
